@@ -6,7 +6,7 @@
 /*   By: sdahraou <sdahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/21 19:15:55 by sdahraou          #+#    #+#             */
-/*   Updated: 2026/11/24 21:21:46 by sdahraou         ###   ########.fr       */
+/*   Updated: 2026/11/24 21:56:24 by sdahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	if (argc <= 1)
-		return (0);
-	stack_a = create_stack(argv, argc);
+		return (1);
 	stack_b = NULL;
-	simple_algo(&stack_a, &stack_b);
+	if (ft_strcmp(argv[1], "--simple") == 0)
+	{
+		stack_a = create_stack(&argv[2], argc);
+		simple_algo(&stack_a, &stack_b);
+	}
 	while (stack_a)
 	{
 		printf("values of stack a : %ld\n", stack_a->value);
