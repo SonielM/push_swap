@@ -6,7 +6,7 @@
 /*   By: sdahraou <sdahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/21 19:15:55 by sdahraou          #+#    #+#             */
-/*   Updated: 2026/11/24 21:56:24 by sdahraou         ###   ########.fr       */
+/*   Updated: 2026/11/25 15:56:50 by sdahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,9 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return (1);
 	stack_b = NULL;
-	if (ft_strcmp(argv[1], "--simple") == 0)
-	{
-		stack_a = create_stack(&argv[2], argc);
-		simple_algo(&stack_a, &stack_b);
-	}
+	stack_a = create_stack(argv, argc);
+	printf("the disorder of the stack is : %f\n", compute_disorder(stack_a));
+	simple_algo(&stack_a, &stack_b);
 	while (stack_a)
 	{
 		printf("values of stack a : %ld\n", stack_a->value);
